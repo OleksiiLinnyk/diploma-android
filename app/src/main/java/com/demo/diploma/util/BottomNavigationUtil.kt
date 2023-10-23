@@ -3,7 +3,6 @@ package com.demo.diploma.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import com.demo.diploma.MainActivity
 import com.demo.diploma.R
 import com.demo.diploma.activity.SettingsActivity

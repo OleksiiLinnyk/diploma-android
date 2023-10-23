@@ -27,7 +27,6 @@ import com.demo.diploma.model.ExerciseType
 import com.demo.diploma.model.TestOptionsDTO
 import com.demo.diploma.model.request.ExerciseRequest
 import com.demo.diploma.model.request.ExerciseTypedRequest
-import com.demo.diploma.model.response.TestResponse
 import com.demo.diploma.util.BottomNavigationUtil
 import com.demo.diploma.util.ShowPopupNotificationUtil
 import com.demo.diploma.util.ViewUtil

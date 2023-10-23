@@ -9,7 +9,6 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import androidx.appcompat.app.AppCompatActivity
 import com.demo.diploma.R
-import com.demo.diploma.activity.CreateUserActivity
 import com.demo.diploma.activity.TeacherActivity
 import com.demo.diploma.api.TestAPI
 import com.demo.diploma.configuration.RetrofitConfiguration

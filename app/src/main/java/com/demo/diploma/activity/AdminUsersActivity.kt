@@ -10,12 +10,10 @@ import android.widget.TableRow
 import android.widget.TableRow.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import com.demo.diploma.R
-import com.demo.diploma.api.GroupAPI
 import com.demo.diploma.api.UsersAPI
 import com.demo.diploma.configuration.RetrofitConfiguration
 import com.demo.diploma.configuration.TokenHolder
 import com.demo.diploma.model.Role
-import com.demo.diploma.model.response.GroupResponse
 import com.demo.diploma.model.response.UserResponse
 import com.demo.diploma.util.BottomNavigationUtil
 import com.demo.diploma.util.ShowPopupNotificationUtil
