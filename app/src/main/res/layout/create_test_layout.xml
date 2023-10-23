@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/top_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Examiner"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:id="@+id/theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_app_text"
+        android:layout_marginTop="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_topic"
+        android:drawablePadding="20dp"
+        android:hint="Theme"
+        android:padding="10dp"
+        android:textColor="@color/myButtonColor"
+        android:textColorHint="@color/myButtonColor" />
+
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/theme"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_registration_subject"
+        android:drawablePadding="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/subject"
+        android:padding="10dp"
+        android:textColor="@color/myButtonColor"
+        android:textColorHint="@color/myButtonColor" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/groupSelector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_group_registration"
+        android:hint="@string/group_name"
+        android:textColorHint="@color/myButtonColor"
+        android:background="#30ffffff"
+        android:layout_below="@+id/subject"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/groupTestView"
+            android:textColorHint="@color/myButtonColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/enableCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/groupSelector"
+        android:layout_marginTop="20dp"
+        android:background="#30ffffff"
+        android:text="Activate"
+        android:textSize="17dp"
+        android:textColor="@color/myButtonColor"
+        android:textColorHint="@color/myButtonColor"
+        android:padding="10dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enableCheckBox"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@id/next_btn"
+        android:layout_marginRight="130dp"
+        android:backgroundTint="@color/myButtonColor"
+        android:text="Back"
+        android:textSize="25dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enableCheckBox"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/myButtonColor"
+        android:text="Next"
+        android:textSize="25dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+
+        android:layout_alignParentBottom="true"
+        android:background="@color/myButtonColor"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

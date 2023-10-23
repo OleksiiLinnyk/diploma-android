@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/top_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Examiner"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_app_text"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_username_registration"
+        android:drawablePadding="20dp"
+        android:hint="@string/name"
+        android:padding="10dp"
+        android:textColor="@color/myButtonColor"
+        android:textColorHint="@color/myButtonColor" />
+
+    <EditText
+        android:id="@+id/userEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userName"
+        android:hint="@string/email"
+        android:background="#30ffffff"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_email_registration"
+        android:drawablePadding="20dp"
+        android:textColorHint="@color/myButtonColor"
+        android:textColor="@color/myButtonColor" />
+
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:background="#30ffffff"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_password_registration"
+        android:layout_below="@+id/userEmail"
+        android:drawablePadding="20dp"
+        android:textColorHint="@color/myButtonColor"
+        android:textColor="@color/myButtonColor"/>
+
+    <EditText
+        android:id="@+id/userRePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rePassword"
+        android:background="#30ffffff"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_password_registration"
+        android:layout_below="@+id/userPassword"
+        android:drawablePadding="20dp"
+        android:textColorHint="@color/myButtonColor"
+        android:textColor="@color/myButtonColor"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/roleSelector"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        app:startIconDrawable="@drawable/ic_role_registration"
+        android:hint="@string/role"
+        android:textColorHint="@color/myButtonColor"
+        android:background="#30ffffff"
+        android:layout_below="@+id/userRePassword"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/roleTextView"
+            android:textColorHint="@color/myButtonColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/groupSelector"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        app:startIconDrawable="@drawable/ic_group_registration"
+        android:hint="@string/group_name"
+        android:textColorHint="@color/myButtonColor"
+        android:background="#30ffffff"
+        android:layout_below="@+id/roleSelector"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/groupTextView"
+            android:textColorHint="@color/myButtonColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/userSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/groupSelector"
+        android:hint="@string/subject"
+        android:background="#30ffffff"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_registration_subject"
+        android:drawablePadding="20dp"
+        android:textColorHint="@color/myButtonColor"
+        android:textColor="@color/myButtonColor" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registration_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userSubject"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/myButtonColor"
+        android:text="@string/register"
+        android:textSize="25dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+
+        android:layout_alignParentBottom="true"
+        android:background="@color/myButtonColor"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

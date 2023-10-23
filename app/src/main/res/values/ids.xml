@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="answer_exercise_text_id" type="id"/>
+    <item name="add_option_exercise_btn_id" type="id"/>
+    <item name="remove_option_exercise_btn_id" type="id"/>
+    <item name="right_answer_text_id" type="id"/>
+    <item name="answer_options_text_id" type="id"/>
+</resources>
