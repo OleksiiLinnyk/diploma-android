@@ -36,6 +36,8 @@
         <activity android:name=".activity.teacher.TeacherTestActivity" android:exported="true"/>
         <activity android:name=".activity.teacher.CreateTestActivity" android:exported="true"/>
         <activity android:name=".activity.teacher.CreateExerciseActivity" android:exported="true"/>
+        <activity android:name=".activity.teacher.TestDetailsActivity" android:exported="true" />
+        <activity android:name=".activity.student.StudentTestActivity" android:exported="true" />
     </application>
 
 </manifest>

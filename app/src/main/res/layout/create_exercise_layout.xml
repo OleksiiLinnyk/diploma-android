@@ -86,8 +86,12 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/bottomNavigationBar"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/myButtonColor"
+        style="@style/Widget.MaterialComponents.Button"
         android:text="Create"
         android:textSize="20dp"
         android:textStyle="bold" />

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/top_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Examiner"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/test_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Test name"
+        android:textSize="14dp"
+        android:textColor="@color/myButtonColor"
+        android:layout_below="@+id/top_app_text"
+        android:layout_marginLeft="30dp"/>
+    <TextView
+        android:id="@+id/theme_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theme name"
+        android:textSize="14dp"
+        android:textColor="@color/myButtonColor"
+        android:layout_below="@+id/top_app_text"
+        android:layout_toRightOf="@+id/test_name"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"/>
+    <CheckBox
+        android:id="@+id/enable_test"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/top_app_text"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/theme_name"/>
+
+    <ImageView
+        android:id="@+id/update_test"
+        android:src="@drawable/ic_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_app_text"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/enable_test"/>
+
+    <ImageView
+        android:id="@+id/delete_test"
+        android:src="@drawable/ic_trash_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_app_text"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/update_test"/>
+
+    <TextView
+        android:id="@+id/groupTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assigned groups: "
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/myButtonColor"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/delete_test"/>
+
+    <ListView
+        android:id="@+id/groups_list"
+        android:layout_width="100dp"
+        android:layout_height="91dp"
+        android:layout_above="@+id/exerciseTextView"
+        android:layout_below="@id/delete_test"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="-14dp"
+        android:layout_toRightOf="@+id/groupTextView" />
+
+    <ImageView
+        android:id="@+id/assign_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_create"
+        android:layout_toRightOf="@+id/groups_list"
+        android:layout_below="@id/delete_test"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/exerciseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/groupTextView"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="100dp"
+        android:text="Exercises"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/add_exercise"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_create"
+        android:backgroundTint="@color/myButtonColor"
+        android:layout_below="@+id/groupTextView"
+        android:layout_toRightOf="@+id/exerciseTextView"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:text="Add exercise"/>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll_test"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bottomNavigationBar"
+        android:layout_below="@+id/exerciseTextView">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:id="@+id/tablelayout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2,3"></TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+
+        android:layout_alignParentBottom="true"
+        android:background="@color/myButtonColor"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

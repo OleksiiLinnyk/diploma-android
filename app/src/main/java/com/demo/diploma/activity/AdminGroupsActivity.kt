@@ -16,6 +16,7 @@ import com.demo.diploma.configuration.TokenHolder
 import com.demo.diploma.fragment.PopUpCreateGroupFragment
 import com.demo.diploma.fragment.PopUpUpdateGroupFragment
 import com.demo.diploma.model.response.GroupResponse
+import com.demo.diploma.usecase.user.SearchGroupUseCase
 import com.demo.diploma.util.BottomNavigationUtil
 import com.demo.diploma.util.ShowPopupNotificationUtil.showPopup
 import com.demo.diploma.util.ViewUtil.prepareImageView
@@ -28,6 +29,7 @@ import retrofit2.Response
 
 class AdminGroupsActivity : AppCompatActivity() {
 
+    private val searchGroupUseCase: SearchGroupUseCase = SearchGroupUseCase()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_groups_layout)
@@ -49,7 +51,11 @@ class AdminGroupsActivity : AppCompatActivity() {
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationBar)
 
-        BottomNavigationUtil.setBottomNavigationMenu(this@AdminGroupsActivity, bottomNavigationView, AdminActivity::class.java)
+        BottomNavigationUtil.setBottomNavigationMenu(
+            this@AdminGroupsActivity,
+            bottomNavigationView,
+            AdminActivity::class.java
+        )
     }
 
     private fun loadAllGroups(
@@ -148,51 +154,34 @@ class AdminGroupsActivity : AppCompatActivity() {
             if (searchInput.text.toString().isNullOrEmpty()) {
                 loadAllGroups(groupAPI, tableLayout)
             } else {
-                val groupByNameCall: Call<GroupResponse> = groupAPI.getGroupByName(
-                    "token=${TokenHolder.getToken()}",
-                    searchInput.text.toString()
-                )
-                groupByNameCall.enqueue(object : Callback<GroupResponse> {
-                    override fun onResponse(
-                        call: Call<GroupResponse>,
-                        response: Response<GroupResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            val body: GroupResponse? = response.body()
-                            if (body != null) {
-                                val tableRow = TableRow(this@AdminGroupsActivity)
-                                tableRow.layoutParams =
-                                    TableRow.LayoutParams(
-                                        TableRow.LayoutParams.WRAP_CONTENT,
-                                        TableRow.LayoutParams.WRAP_CONTENT
-                                    )
-                                tableRow.id
-                                val id =
-                                    prepareTextView(body.id.toString(), 1, this@AdminGroupsActivity)
-                                val name = prepareTextView(body.name, 2, this@AdminGroupsActivity)
-                                val btn = prepareImageView(3, this@AdminGroupsActivity)
+                val body: GroupResponse? = searchGroupUseCase.search(searchInput.text.toString())
+                if (body != null) {
+                    val tableRow = TableRow(this@AdminGroupsActivity)
+                    tableRow.layoutParams =
+                        TableRow.LayoutParams(
+                            TableRow.LayoutParams.WRAP_CONTENT,
+                            TableRow.LayoutParams.WRAP_CONTENT
+                        )
+                    tableRow.id
+                    val id =
+                        prepareTextView(body.id.toString(), 1, this@AdminGroupsActivity)
+                    val name = prepareTextView(body.name, 2, this@AdminGroupsActivity)
+                    val btn = prepareImageView(3, this@AdminGroupsActivity)
 
-                                tableRow.addView(id)
-                                tableRow.addView(name)
-                                tableRow.addView(btn)
+                    tableRow.addView(id)
+                    tableRow.addView(name)
+                    tableRow.addView(btn)
 
-                                tableLayout.removeAllViews()
-                                tableLayout.addView(tableRow)
+                    tableLayout.removeAllViews()
+                    tableLayout.addView(tableRow)
 
-                                deleteGroupBtnBehavior(btn, groupAPI, body, name, tableRow, id)
-                            } else {
-                                showPopup(
-                                    "Group has not been found",
-                                    this@AdminGroupsActivity
-                                )
-                            }
-                        }
-                    }
-
-                    override fun onFailure(call: Call<GroupResponse>, t: Throwable) {
-                        Log.v("Retrofit", "call failed ${t.message}")
-                    }
-                })
+                    deleteGroupBtnBehavior(btn, groupAPI, body, name, tableRow, id)
+                } else {
+                    showPopup(
+                        "Group has not been found",
+                        this@AdminGroupsActivity
+                    )
+                }
             }
         }
     }

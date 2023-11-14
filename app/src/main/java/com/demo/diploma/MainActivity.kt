@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 if (loginResponse != null) {
                     login(loginResponse)
                     val cookieList: List<String> = it.headers().values("Set-Cookie")
-                    TokenHolder.saveToken(cookieList.get(0).split("=").get(1))
+                    TokenHolder.saveToken(cookieList[0].split("=")[1])
                 }
             })
         }

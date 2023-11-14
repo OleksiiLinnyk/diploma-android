@@ -11,6 +11,7 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface TestAPI {
 
@@ -35,4 +36,30 @@ interface TestAPI {
         @Header("Cookie") token: String,
         @Path("testId") testId: Long
     ): Call<ResponseBody>
+
+    @GET("/api/test/{testId}")
+    fun getTestById(
+        @Header("Cookie") token: String,
+        @Path("testId") testId: Long
+    ): Call<TestResponse>
+
+    @PUT("/api/test/{testId}")
+    fun updateTest(
+        @Header("Cookie") token: String,
+        @Body testRequest: TestUpsertRequest,
+        @Path("testId") testId: Long
+    ): Call<TestResponse>
+
+    @PUT("/api/test/assign-to-group")
+    fun assignTestToGroup(
+        @Header("Cookie") token: String,
+        @Query("testId") testId: Long,
+        @Query("groupId") groupId: Long
+    ): Call<ResponseBody>
+
+    @GET("/api/test/my/test")
+    fun getStudentTests(
+        @Header("Cookie") token: String,
+        @Query("status") status: String
+    ): Call<List<TestResponse>>
 }

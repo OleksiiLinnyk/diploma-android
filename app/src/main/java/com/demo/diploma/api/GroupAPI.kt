@@ -40,4 +40,16 @@ interface GroupAPI {
         @Header("Cookie") token: String,
         @Body request: UpdateGroupRequest
     ): Call<ResponseBody>
+
+    @GET("/api/group/test")
+    fun getGroupsByTestId(
+        @Header("Cookie") token: String,
+        @Query("testId") testId: Long
+    ): Call<List<GroupResponse>>
+
+    @GET("/api/group/available/test")
+    fun getAvailableGroupsByTestId(
+        @Header("Cookie") token: String,
+        @Query("testId") testId: Long
+    ): Call<List<GroupResponse>>
 }
