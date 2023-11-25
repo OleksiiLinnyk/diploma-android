@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/top_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Examiner"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/question_placeholder"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Question?"
+        android:layout_below="@+id/top_app_text"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        />
+
+    <TextView
+        android:id="@+id/exercise_description_placeholder"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:layout_below="@+id/question_placeholder"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/exercise_options_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/exercise_description_placeholder"
+        android:layout_margin="15dp"
+        android:layout_above="@+id/next_exercise_btn">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_exercise_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:backgroundTint="@color/myButtonColor"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bottomNavigationBar"
+        android:layout_marginBottom="30dp"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+
+        android:layout_alignParentBottom="true"
+        android:background="@color/myButtonColor"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

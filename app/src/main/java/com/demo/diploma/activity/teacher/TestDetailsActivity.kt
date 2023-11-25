@@ -21,12 +21,10 @@ import com.demo.diploma.configuration.RetrofitConfiguration
 import com.demo.diploma.configuration.TokenHolder
 import com.demo.diploma.fragment.AssignGroupToTest
 import com.demo.diploma.fragment.ExerciseDetailsFragment
-import com.demo.diploma.fragment.PopUpUpdateGroupFragment
 import com.demo.diploma.fragment.PopUpUpdateTest
 import com.demo.diploma.model.response.ExerciseResponse
 import com.demo.diploma.model.response.GroupResponse
 import com.demo.diploma.model.response.TestResponse
-import com.demo.diploma.usecase.test.AssignTestToGroupUseCase
 import com.demo.diploma.usecase.test.GetGroupsByTestIdUseCase
 import com.demo.diploma.util.BottomNavigationUtil
 import com.demo.diploma.util.ShowPopupNotificationUtil
@@ -215,20 +213,21 @@ class TestDetailsActivity : AppCompatActivity() {
         it: ExerciseResponse
     ): TableRow {
         val tableRow = TableRow(this@TestDetailsActivity)
-        tableRow.layoutParams =
-            TableRow.LayoutParams(
-                200,
-                TableRow.LayoutParams.WRAP_CONTENT
-            )
-        val id = ViewUtil.prepareTextView(it.id.toString(), 1, this@TestDetailsActivity)
+        val tableRowParams = TableLayout.LayoutParams(200, TableLayout.LayoutParams.WRAP_CONTENT)
+        tableRowParams.setMargins(0, 10, 0, 10)
+        tableRow.layoutParams = tableRowParams
+
+        val id = ViewUtil.prepareTextView(it.id.toString(), 1, this@TestDetailsActivity, false)
         val question = ViewUtil.prepareTextView(
             if (!it.exercise.question.isNullOrEmpty()) it.exercise.question else "",
             2,
-            this@TestDetailsActivity
+            this@TestDetailsActivity,
+            false
         )
 
         tableRow.addView(id, 0)
         tableRow.addView(question, 1)
+        tableRow.setBackgroundResource(R.drawable.corners_with_background_for_table)
         return tableRow
     }
 }

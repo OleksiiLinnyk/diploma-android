@@ -6,4 +6,7 @@
     <color name="backgroundTableColor">#EC7C7C</color>
     <color name="tableBackgroundRow">#ED8787</color>
     <color name="inputBackground">#30ffffff</color>
+    <color name="activeTestBackground">#1CBC22</color>
+    <color name="inActiveTestBackground">#707070</color>
+    <color name="textColorForAnswer">#252525</color>
 </resources>

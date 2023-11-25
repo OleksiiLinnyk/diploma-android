@@ -38,6 +38,12 @@
         <activity android:name=".activity.teacher.CreateExerciseActivity" android:exported="true"/>
         <activity android:name=".activity.teacher.TestDetailsActivity" android:exported="true" />
         <activity android:name=".activity.student.StudentTestActivity" android:exported="true" />
+        <activity android:name=".activity.student.StudentTestExerciseActivity" android:exported="true"/>
+        <activity android:name=".activity.teacher.CheckResultTeacherTestActivity" android:exported="true"/>
+        <activity android:name=".activity.teacher.CheckResultTeacherGroupsActivity" android:exported="true"/>
+        <activity android:name=".activity.teacher.CheckResultTeacherUsersActivity" android:exported="true"/>
+        <activity android:name=".activity.teacher.CheckResultTeacherStudentExercisesActivity" android:exported="true"/>
+        <activity android:name=".activity.student.StudentTestResultActivity" android:exported="true"/>
     </application>
 
 </manifest>

@@ -9,10 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
 import com.demo.diploma.MainActivity
 import com.demo.diploma.R
+import com.demo.diploma.activity.teacher.CheckResultTeacherTestActivity
 import com.demo.diploma.activity.teacher.CreateExerciseActivity
 import com.demo.diploma.activity.teacher.TeacherTestActivity
 import com.demo.diploma.api.AuthAPI
 import com.demo.diploma.configuration.RetrofitConfiguration
+import com.demo.diploma.configuration.TokenHolder
 import com.demo.diploma.model.response.MessageResponse
 import retrofit2.Response
 
@@ -50,7 +52,7 @@ class TeacherActivity : AppCompatActivity() {
         }
 
         checkTestCard.setOnClickListener {
-            val intent = Intent(applicationContext, CreateExerciseActivity::class.java)
+            val intent = Intent(applicationContext, CheckResultTeacherTestActivity::class.java)
             startActivity(intent)
         }
 

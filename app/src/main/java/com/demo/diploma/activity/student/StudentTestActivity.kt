@@ -1,5 +1,6 @@
 package com.demo.diploma.activity.student
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -35,10 +36,15 @@ class StudentTestActivity : AppCompatActivity() {
         getStudentTestUseCase.execute(object : LoadTestCallback {
             override fun onSuccess(body: List<TestResponse>) {
                 tableLayout.removeAllViews()
-                Log.i("BODY", body.toString())
-                body.forEach {
-                    val tableRow: TableRow = prepareRows(it)
+                body.forEach { testResponse ->
+                    val tableRow: TableRow = prepareRows(testResponse)
                     tableLayout.addView(tableRow)
+                    tableRow.setOnClickListener {
+                        val intent =
+                            Intent(applicationContext, StudentTestExerciseActivity::class.java)
+                        intent.putExtra("testId", testResponse.id)
+                        startActivity(intent)
+                    }
                 }
             }
         })

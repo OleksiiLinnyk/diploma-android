@@ -1,9 +1,13 @@
 package com.demo.diploma.api
 
 import com.demo.diploma.model.request.TestUpsertRequest
+import com.demo.diploma.model.response.GroupsProgressResponse
+import com.demo.diploma.model.response.StudentTestResultResponse
+import com.demo.diploma.model.response.StudentsProgressResponse
 import com.demo.diploma.model.response.TestResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -62,4 +66,22 @@ interface TestAPI {
         @Header("Cookie") token: String,
         @Query("status") status: String
     ): Call<List<TestResponse>>
+
+    @GET("/api/test/my")
+    suspend fun getTeacherTests(@Header("Cookie") token: String): Response<List<TestResponse>>
+
+    @GET("/api/test/progress/{testId}")
+    suspend fun getGroupResultsByTestId(@Header("Cookie") token: String, @Path("testId") testId: Long): Response<List<GroupsProgressResponse>>
+
+    @GET("/api/test/userProgress")
+    suspend fun getUserResultsByTestAndGroupId(
+        @Header("Cookie") token: String,
+        @Query("testId") testId: Long,
+        @Query("groupId") groupId: Long
+    ): Response<List<StudentsProgressResponse>>
+
+    @GET("/api/test/my/result")
+    suspend fun getStudentTestsResult(
+        @Header("Cookie") token: String
+    ): Response<List<StudentTestResultResponse>>
 }
